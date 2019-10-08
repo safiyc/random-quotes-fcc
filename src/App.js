@@ -7,8 +7,12 @@ class App extends React.Component {
     this.state = {
       error: null,
       isLoaded: false,
-      quotes: []
+      quotes: [],
+      currentQuote: 'First quote.',
+      currentAuthor: 'First author'
     };
+
+    this.handleQuote = this.handleQuote.bind(this);
   }
 
   componentDidMount() {
@@ -37,12 +41,32 @@ class App extends React.Component {
       )
   }
 
+  handleQuote() {
+    const len = this.state.quotes.length;
+    const randomIndex = Math.floor(Math.random() * len);
+    let randomQuoteObj = this.state.quotes[randomIndex];
+
+    let currentObjArray = Object.keys(randomQuoteObj)
+      .map(function (key) {
+        return randomQuoteObj[key]
+      });
+
+    let currentQuote = currentObjArray[0];
+    let currentAuthor = currentObjArray[1];
+
+    this.setState({
+      currentQuote: currentQuote,
+      currentAuthor: currentAuthor
+    })
+  }
+
   render() {
     const { error, isLoaded, quotes } = this.state;
+
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (isLoaded === false) {
-      return <div>Loading...</div>
+      return <div>It's loading, bro...</div>
     } else {
       return (
         <div id='quote-box'>
@@ -53,7 +77,10 @@ class App extends React.Component {
               </li>
             ))}
           </ul>
-          <button id='new-quote'>New Quote</button>
+          <div >
+            {this.state.currentQuote} - {this.state.currentAuthor}
+          </div>
+          <button id='new-quote' onClick={this.handleQuote}>New Quote</button>
           <button id='tweet-quote'>Tweet Quote</button>
         </div>
       )
