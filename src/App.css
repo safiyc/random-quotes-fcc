@@ -1,22 +1,71 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box; 
 }
-
-.App-logo {
-  height: 40vmin;
+html, body {
+  height: 100%;
+  
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  background: papayawhip;
+  padding: 5px;
+  margin: 0;
+  position: relative;
+}
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 30px;
+  /* height: 80%; */
+  width: 100%;
+  /* min-height: 350px; */
+  min-width: 300px;
+  /* max-height: 600px; */
+  max-width: 800px;
+  background-image: url('https://i.ibb.co/0sYWD3T/diamond-dots.jpg');
+  box-shadow: 0 0 3px 1px rgba(0,0,0,.5);
+  /* position: relative; */
+}
+#wrapper {
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+#inner-frame {
+  position: absolute;
+  border: 3px solid cadetblue;
+  height: calc(100% - 60px);
+  width: calc(100% - 60px);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  pointer-events: none;
+}
+#ribbon {
+  position: absolute;
+  width: 45px;
+  height: 210px;
+  background-color: gold;
+  box-shadow: inset 0 0 0 6px white, 0 0 3px 0 black;
+  right: 30px;
+  top: -50px;
+  transform: rotate(-45deg);
+  z-index: 5;
+}
+#content-wrapper {
+  background: rgba(0,0,0,.25);
+  height: 100%;
+  padding: 50px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #09d3ac;
+@media (min-width: 500px) {
+  body{
+    padding: 20px;
+    background: lightgrey;
+  }
 }
