@@ -1,0 +1,85 @@
+#quote-box {
+  padding: 10px;
+  height: calc(100% - 100px);
+  position: relative;
+}
+.pink-paper {
+  background: pink;
+  box-shadow: inset 0 0 3px 2px rgba(0,0,0,.5);
+  padding: 10px;
+
+}
+.green-paper {
+  background: yellowgreen;
+  box-shadow: inset 0 0 3px 2px rgba(0,0,0,.5);
+  padding: 7px;
+  height: calc(100% + 1px);
+}
+.lightblue-paper {
+  background: lightblue;
+  box-shadow: inset 0 0 3px 2px rgba(0,0,0,.5);
+  padding: 5px;
+  height: calc(100% + 0px);
+}
+#inner-quote-box {
+  background: white;
+  box-shadow: inset 0 0 3px 2px rgba(0,0,0,.5);
+  padding: 15px;
+  height: calc(100% + 0px);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+#text-container {
+  font-family: 'Architects Daughter', cursive;
+  height: calc(100% - 30px);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#text {
+  font-weight: 600;
+  text-align: center;
+  font-size: 1.25rem;
+  margin: 0 0 5px;
+  padding-bottom: 3px; 
+}
+#author {
+  width: fit-content;
+  font-size: 1.1rem;
+  margin: 0;
+  line-height: 15px;
+  padding-top: 8px;
+  border-top: 1px solid transparent;
+  border-image: url(https://i.ibb.co/wNbMzxB/border-cust.png) 28 stretch;
+  color: dimgrey;
+  margin-left: auto;
+  text-align: right;
+}
+#buttons-box {
+  position: absolute;
+  left: 20px;
+  bottom: 0;
+}
+button {
+  border: none;
+  box-shadow: 0 0 2px 1px rgba(0,0,0,.5);
+  background: rgba(0,0,0,.01);
+  background: lightblue;
+  margin: 0 6px 10px;
+  padding: 0 10px;
+  height: 30px;
+}
+
+@media (min-width: 500px) {
+  .pink-paper {
+    max-height: calc(100% - 100px);
+  }
+  #text {
+    font-size: 1.5rem;
+  }
+  #author {
+    font-size: 1.3rem;
+  }
+}

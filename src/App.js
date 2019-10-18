@@ -1,9 +1,9 @@
 import React from 'react';
-import './App.css';
+import './Styles/App.css';
 
 import Title from './Components/title.component';
-import QuoteBox from './Components/qoute-box.component';
-import CountdownBox from './Components/countdown-box.component';
+import QuoteBox from './Components/quote-box.component';
+// import CountdownBox from './Components/countdown-box.component';
 import Footer from './Components/footer.component';
 
 function App() {

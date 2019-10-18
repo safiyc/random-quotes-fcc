@@ -1,5 +1,7 @@
 import React from 'react';
-// import './App.css';
+import '../Styles/Quote-box.css';
+
+// import CountdownBox from './countdown-box.component';
 
 class QuoteBox extends React.Component {
   constructor(props) {
@@ -21,7 +23,7 @@ class QuoteBox extends React.Component {
 
     // raw format of my gist 'quotes.json'
     // when gist updated, must provide new link of raw
-    const quotesJSON = "https://gist.githubusercontent.com/safiyc/00897047c3fed1757971379046308134/raw/829c07a0f6fa99727e8e118025bbfac348d4321e/quotes.json";
+    const quotesJSON = "https://gist.githubusercontent.com/safiyc/00897047c3fed1757971379046308134/raw/756f3cdcbd4a51db817b56dfe11780c6b2979889/quotes.json";
 
     fetch(bypassCors + quotesJSON)
       .then(res => res.json())
@@ -94,68 +96,26 @@ class QuoteBox extends React.Component {
     } else {
       return (
         <>
-          <style jsx>{`
-            .pink-paper {
-              background: pink;
-              box-shadow: inset 0 0 3px 2px rgba(0,0,0,.5);
-              padding: 10px;
-            }
-            .green-paper {
-              background: yellowgreen;
-              box-shadow: inset 0 0 3px 2px rgba(0,0,0,.5);
-              padding: 7px;
-            }
-            .lightblue-paper {
-              background: lightblue;
-              box-shadow: inset 0 0 3px 2px rgba(0,0,0,.5);
-              padding: 6px;
-            }
-            #inner-quote-box {
-              background: white;
-              box-shadow: inset 0 0 3px 2px rgba(0,0,0,.5);
-              min-height: 150px;
-              padding: 20px;
-              font-family: 'Architects Daughter', cursive;
-              // position: relative;
-            }
-            #text {
-              text-align: justify;
-              font-size: 1.5rem;
-              margin: 0 0 5px;
-            }
-            #author {
-              text-align: right;
-              font-size: 1.2rem;
-              margin: 0 0 10px;
-            }
-            #buttons-box {
-              // width: fit-content;
-              // padding: 3px;
-              // height: 8px;
-            }
-            button {
-              border: none;
-              border-bottom: 1px solid black;
-              border-radius: 2px;
-              background: rgba(0,0,0,.01);
-              margin: 0 4px 10px;
-              padding: 0 4px;
-            }
-          `}</style>
           <div id='quote-box' className='pink-paper'>
             <div className='green-paper'>
               <div className='lightblue-paper'>
                 <div id='inner-quote-box'>
+                  <div id='text-container'>
+                    <div>
+                      <p id='text'>{currentQuote}</p>
+                      <p id='author'>{currentAuthor}</p>
+                    </div>
+                  </div>
                   <div id='buttons-box'>
                     <button id='new-quote' onClick={this.handleQuote}>New Quote</button>
                     <button id='tweet-quote'>Tweet</button>
                   </div>
-                  <p id='text'>{currentQuote}</p>
-                  <p id='author'>{currentAuthor}</p>
                 </div>
               </div>
             </div>
+            {/* <CountdownBox /> */}
           </div>
+
         </>
       )
     }
