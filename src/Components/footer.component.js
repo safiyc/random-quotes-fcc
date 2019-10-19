@@ -19,11 +19,8 @@ function Footer() {
         }
       `}</style>
       <footer>
-        {/* <a href="http://www.safiycham.com/" target="_blank">
+        <a href="http://www.safiycham.com/" target="_blank" rel='noopener noreferrer'>
           Random Quotes&nbsp;&ndash;&nbsp;safiy cham &nbsp;&#169;&nbsp;2019
-        </a> */}
-        <a href="#" target="_blank">
-          Random Quotes&nbsp;&ndash;&nbsp;2019
         </a>
       </footer>
     </>

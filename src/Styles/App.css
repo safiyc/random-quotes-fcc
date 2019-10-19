@@ -58,6 +58,14 @@ body {
   position: relative;
 }
 
+/* when quote-box doesn't render */
+.error-box {
+  color: cadetblue;
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 40px;
+}
+
 /* larger than mobile screen */
 @media (min-width: 400px) {
   body{

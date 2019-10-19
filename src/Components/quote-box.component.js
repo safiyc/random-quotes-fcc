@@ -15,6 +15,7 @@ class QuoteBox extends React.Component {
     };
 
     this.handleQuote = this.handleQuote.bind(this);
+    this.handleTweet = this.handleTweet.bind(this);
   }
 
   componentDidMount() {
@@ -62,36 +63,26 @@ class QuoteBox extends React.Component {
     })
   }
 
+  handleTweet() {
+    const href = document.getElementById('tweet-quote');
+
+    href.setAttribute('href', `https://twitter.com/intent/tweet?hashtags=${this.state.currentQuote} - ${this.state.currentAuthor}`);
+  }
+
   render() {
     const { error, isLoaded, currentQuote, currentAuthor } = this.state;
 
     if (error) {
       return (
-        <>
-          <style jsx>{`
-            div {
-              color: cadetblue;
-              text-align: center;
-              font-size: 2rem;
-              margin-top: 40px;
-            }
-          `}</style>
-          <div>ERROR: Failed to fetch quotes. Please try again.</div>
-        </>
+        <div className='error-box'>
+          ERROR: Failed to fetch quotes. Please try again later.
+        </div>
       );
     } else if (isLoaded === false) {
       return (
-        <>
-          <style jsx>{`
-            div {
-              color: cadetblue;
-              text-align: center;
-              font-size: 2rem;
-              margin-top: 40px;
-            }
-          `}</style>
-          <div>Fetching quotes from database...</div>
-        </>
+        <div className='error-box'>
+          Fetching quotes from database...
+        </div>
       )
     } else {
       return (
@@ -108,7 +99,7 @@ class QuoteBox extends React.Component {
                   </div>
                   <div id='buttons-box'>
                     <button id='new-quote' onClick={this.handleQuote}>New Quote</button>
-                    <button id='tweet-quote'>Tweet</button>
+                    <a id='tweet-quote' href target='_blank' rel='noopener noreferrer' onClick={this.handleTweet}><button>Tweet</button></a>
                   </div>
                 </div>
               </div>
