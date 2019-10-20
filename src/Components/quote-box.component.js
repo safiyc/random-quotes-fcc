@@ -1,8 +1,6 @@
 import React from 'react';
 import '../Styles/Quote-box.css';
 
-// import CountdownBox from './countdown-box.component';
-
 class QuoteBox extends React.Component {
   constructor(props) {
     super(props);
@@ -16,7 +14,7 @@ class QuoteBox extends React.Component {
 
     this.handleQuote = this.handleQuote.bind(this);
     this.handleTweet = this.handleTweet.bind(this);
-  }
+  };
 
   componentDidMount() {
     const bypassCors = "https://cors-anywhere.herokuapp.com/";
@@ -24,7 +22,7 @@ class QuoteBox extends React.Component {
 
     // raw format of my gist 'quotes.json'
     // when gist updated, must provide new link of raw
-    const quotesJSON = "https://gist.githubusercontent.com/safiyc/00897047c3fed1757971379046308134/raw/756f3cdcbd4a51db817b56dfe11780c6b2979889/quotes.json";
+    const quotesJSON = "https://gist.githubusercontent.com/safiyc/00897047c3fed1757971379046308134/raw/0084249abbe1e47e7376cefa04c2ceb0de5dff1b/quotes.json";
 
     fetch(bypassCors + quotesJSON)
       .then(res => res.json())
@@ -41,8 +39,8 @@ class QuoteBox extends React.Component {
             error
           });
         }
-      )
-  }
+      );
+  };
 
   handleQuote() {
     const len = this.state.quotes.length;
@@ -60,14 +58,18 @@ class QuoteBox extends React.Component {
     this.setState({
       currentQuote: currentQuote,
       currentAuthor: currentAuthor
-    })
-  }
+    });
+
+
+    const text = document.getElementById('text');
+    text.classList.toggle('text-effect');
+  };
 
   handleTweet() {
     const href = document.getElementById('tweet-quote');
 
     href.setAttribute('href', `https://twitter.com/intent/tweet?hashtags=${this.state.currentQuote} - ${this.state.currentAuthor}`);
-  }
+  };
 
   render() {
     const { error, isLoaded, currentQuote, currentAuthor } = this.state;
@@ -83,7 +85,7 @@ class QuoteBox extends React.Component {
         <div className='error-box'>
           Fetching quotes from database...
         </div>
-      )
+      );
     } else {
       return (
         <>
@@ -104,13 +106,11 @@ class QuoteBox extends React.Component {
                 </div>
               </div>
             </div>
-            {/* <CountdownBox /> */}
           </div>
-
         </>
-      )
-    }
-  }
-}
+      );
+    };
+  };
+};
 
 export default QuoteBox;

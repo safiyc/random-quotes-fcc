@@ -1,7 +1,6 @@
 #title {
   padding: 0;
-  /* margin: 20px auto 30px; */
-  margin: 0px auto 5px;
+  margin: 20px auto 35px;
   text-align: center;
   color: cadetblue;
   font-family: 'Tangerine', cursive;
@@ -9,9 +8,9 @@
   letter-spacing: 2px;
 }
 
-@media (min-width: 400px) {
+@media (min-width: 500px) {
   #title {
-    margin: 15px auto;
+    margin: 18px auto 20px;
     font-size: 3.5rem;
   }
 }
