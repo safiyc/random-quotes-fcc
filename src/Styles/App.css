@@ -67,10 +67,10 @@ body {
 }
 
 /* larger than mobile screen */
-@media (min-width: 400px) {
+@media (min-width: 500px) {
   body{
     padding: 20px;
-    background: lightgrey;
+    /* background: lightgrey; */
     background: orange;
     overflow-y: scroll;
   }
